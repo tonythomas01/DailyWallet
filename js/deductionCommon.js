@@ -9,7 +9,7 @@ $(function() {
 /* This will bring up the accordion */
 $(function() {
     $( "#expenses" ).accordion({
-      active: false,
+      active: true,
       collapsible :false
     });
 });
