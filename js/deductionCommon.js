@@ -10,7 +10,7 @@ $(function() {
 $(function() {
     $( "#expenses" ).accordion({
       active: false,
-      collapsible :true
+      collapsible :false
     });
 });
 
