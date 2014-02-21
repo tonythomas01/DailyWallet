@@ -1,3 +1,11 @@
+/*This will show up the current balance */
+
+$(function() {
+  $('#balanceCheck').click(function() {
+	alert('Wallet Contains:'+localStorage.balance);
+   });
+});
+
 /* This will bring up the accordion */
 $(function() {
     $( "#expenses" ).accordion({

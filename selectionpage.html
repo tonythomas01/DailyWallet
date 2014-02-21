@@ -5,7 +5,11 @@
   <link rel="stylesheet" type="text/css" href="css/resetStyle.css" />
   <link rel="stylesheet" type="text/css" href="css/footer.css" />
   <script type="text/javascript" src="js/showmeHistory.js"></script>
-  <script type="text/javascript" src="js/balanceCheck.js"></script>
+  <script type = "text/javascript"> 
+	$('#balanceCheck').click(function() {
+	alert('Wallet Contains:'+localStorage.balance);
+   });
+ </script>
   <title>Daily Wallet</title>
 </head>
 
@@ -14,9 +18,7 @@
     <img src="img/arrow_2.png" height="50" width="50" style="float:left;">
   </a>
 
-  <a id="balanceCheck1">
-    <img src="img/balance.png" height="40" width="50" style=" float:right; position:relative; top:8px;">
-  </a>
+  <a id="balanceCheck"><img src="img/balance.png" height="40" width="50" style=" float:right; position:relative; top:8px;"></a>
   <h1 style="font-family:MozTT,Bold; font-size: 31px; text-align:center;">Daily Wallet</h1>
   <hr size=2>
   <a href="addToWallet.html" style="text-decoration:none; color:black;">

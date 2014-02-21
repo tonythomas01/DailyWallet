@@ -3,4 +3,8 @@ window.onload = function () {
   historyClicked.onclick = function () {
     alert(localStorage.history);
   }
+  var balancChecker = document.getElementById('balanceCheck');
+  balancChecker.onclick = function()	{
+	alert('Wallet Contains:'+localStorage.balance);
+  }
 }
