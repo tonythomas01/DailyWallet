@@ -34,8 +34,9 @@ function reply_click(clicked_id) {
 
 /*function to check whether a deduction is possible */
 function possibleDeduction (deductAmount) {
-    if ( deductAmount<0 ) {
+    if ( deductAmount< 0 || deductAmount == null ) {
       alert('Oops! Enter Value > 0');
+      return 0;
     } else if ( +deductAmount<localStorage.balance) {
       localStorage.balance=(localStorage.balance-deductAmount);
       alert('Wallet thin by :'+deductAmount+"\n New balance:Rs "+ localStorage.balance);
