@@ -1,0 +1,15 @@
+{
+	"name": "Daily Wallet",
+	"description" : "Effectieve Wallet Management System",
+	"launch_path": "/index.html",
+	"icons": {
+		"128":"/icon.png"
+	
+},
+"developer": {
+	"name": "Team- FOSS@Amrita",
+	"url": "https://foss.amrita.ac.in"
+
+},
+"default_locale": "en"
+}
