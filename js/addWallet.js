@@ -1,63 +1,60 @@
+/*This will show up the current balance */
 
-			window.onload=function()	{
-			var extra=document.getElementById('parents');
-			var extra1=document.getElementById('atm');
-			var balcheckR=document.getElementById('balanceCheck');
-			var num2=0;
-	
-			extra.onclick=function(){
-			
-			  	num2=prompt('Amount to Add:','');
-			  	
-			  	checkin(num2);
-			  	appendToStorageAdd('Parents+',num2);
-			  	 }
-			  extra1.onclick=function(){
-			
-			  	num2=prompt('Amount to Add:','');
-			  	checkin(num2);
-			  	appendToStorageAdd('ATM+',num2);
-			}
-		
+$(function() {
+  $('#balanceCheck').click(function() {
+	alert('Wallet Contains:'+localStorage.balance);
+   });
+});
 
-		balcheckR.onclick=function()	{
-			alert('Wallet Contains:Rs '+localStorage.balance);
-		}
-	
-		}
-			function appendToStorageAdd(deductItem,num2)	{
-		
-		var old=localStorage.history;
-		if(old==null)	old="";
-		var currentdate=new Date(); 
-		var datetime=+currentdate.getDate() + "/"  + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getFullYear() + " @ "  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds();
-		localStorage.history=old+"\n"+datetime+"\n"+deductItem+":"+num2;
-	
-		}
+/* This will bring up the accordion */
+$(function() {
+    $( "#income" ).accordion({
+      active: false,
+      collapsible :true
+    });
+});
+
+/* Function to append the localStorage */
+function appendToStorageAdd(addItem,addAmount)	{
+  var old=localStorage.history;
+  if(old==null)	{
+    old="";
+  }
+  var currentdate=new Date(); 
+  var datetime=+currentdate.getDate() + "/"  + (currentdate.getMonth()+1)  + "/" 
+		+ currentdate.getFullYear() + " @ "  
+		+ currentdate.getHours() + ":"  
+		+ currentdate.getMinutes() + ":" 
+		+ currentdate.getSeconds();
+  localStorage.history=old+"\n"+datetime+"\n++"+addItem+": Rs."+addAmount;
+  
+}
+
+/*functions to handle the click event */
+function reply_click(clicked_id) {
+  var addAmount;
+  var addItem = clicked_id;
+  addAmount = prompt('Amount to Add:','');
+  if ( possibleAdd(addAmount) ) {
+	appendToStorageAdd(addItem,addAmount);	
+     }
+}
+
+/*function to check whether an add is possible */
+function possibleAdd(addAmount) {
+    if ( addAmount< 0 || addAmount == null ) {
+      alert('Oops! Enter Value > 0');
+      return 0;
+    } else if (localStorage.balance == 0) {
+      localStorage.balance= addAmount;
+      alert("Wallet Thick by :"+addAmount+"\n Wallet Contains :"+localStorage.balance);
+      return 1;
+    } else {
+      localStorage.balance=+localStorage.balance + +addAmount;
+      alert("Wallet Thick by :"+addAmount+"\n Wallet Contains :"+localStorage.balance);
+      return 1;
+    }
+}
 
 
-			function checkin(num2)	{
-				if(num2 < 0)	{
-					alert('Oops ! Enter a value > 0');
-					
-					}
-			else {
-				if(localStorage.balance==0)	{
-					
-					localStorage.balance=num2;
-		
-					alert("Wallet Thick by :"+num2+"\n Wallet Contains :"+localStorage.balance);
-			  
-				}
-				else {
-					localStorage.balance=+localStorage.balance + +num2;
-					alert("Wallet Thick by :"+num2+"\n Wallet Contains :"+localStorage.balance);
-					
-				}
-			}
-		}
-		
+  

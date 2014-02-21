@@ -27,7 +27,7 @@ function appendToStorage(deductItem,deductAmount) {
 		+ currentdate.getHours() + ":"  
 		+ currentdate.getMinutes() + ":" 
 		+ currentdate.getSeconds();
-  localStorage.history=old+"\n"+datetime+"\n"+deductItem+":"+deductAmount;S
+  localStorage.history=old+"\n"+datetime+"\n--"+deductItem+": Rs."+deductAmount;
 }
 
 /*functions to handle the click event */
@@ -47,7 +47,7 @@ function possibleDeduction (deductAmount) {
       return 0;
     } else if ( +deductAmount<localStorage.balance) {
       localStorage.balance=(localStorage.balance-deductAmount);
-      alert('Wallet thin by :'+deductAmount+"\n New balance:Rs "+ localStorage.balance);
+      alert('Wallet thin by :'+deductAmount+"\n New balance: Rs."+ localStorage.balance);
       return 1;
     } else {
       alert("Thats not possible :( \n You are running Out of Wallet");
