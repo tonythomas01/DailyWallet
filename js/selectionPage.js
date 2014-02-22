@@ -1,12 +1,12 @@
 if ( localStorage.balance === undefined ) {
     localStorage.balance= 0;
 }
+
 $(function() {
   $('#balanceCheck').click(function() {
 	alert('Wallet Contains: Rs.'+localStorage.balance);
    });
 });
-
 
 function reset_wallet() {
 	var a=confirm("Empty Wallet ?\n Will Erase all Data !");
@@ -24,12 +24,15 @@ function reset_wallet() {
 		alert("Later !");
 	  }
 }
+
 $(function() {
-    $( "#selection").accordion({
+    $('#selection').accordion({
       active: true,
-      collapsible :false
+      collapsible :false,
+      header: "h2"
     });
 });
+
 
 function show_history()	{
   alert(localStorage.history);
